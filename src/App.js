@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from './firebase/firebase'; // Import Firebase functions
+import './App.css';  // Importing the styles from App.css
+import AuthForm from './components/AuthForm';
+const App = () => {
+  const [user, setUser] = useState(null);
 
-function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Welcome to the Task Management App</h1>
+      {!user ? (
+        <div>
+          <AuthForm/>
+        </div>
+      ) : (
+        <div>
+          <h2>Welcome, {user.displayName}</h2>
+          <p>You are signed in!</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
-export default App;
+export default App; // Default export to avoid import issues

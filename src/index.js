@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client'; // ReactDOM from 'react-dom/client' in React 18
+import App from './App';  // Make sure this path is correct
 
+// Create root using ReactDOM.createRoot
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render your App inside the root
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
